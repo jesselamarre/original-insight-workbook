@@ -347,7 +347,13 @@
   document.addEventListener("DOMContentLoaded", () => {
     loadAll();
 
-    document.querySelectorAll(".week-tab").forEach((t) =>
+    // Scoped to #weeknav only — the "Continue to Week X" buttons at the
+    // bottom of each panel share the .week-tab class purely for styling,
+    // and already navigate via their own onclick handler. Binding this
+    // listener to every .week-tab (including those) caused a second,
+    // conflicting showPanel(undefined) call that immediately hid the page
+    // again, which is why those buttons appeared to do nothing.
+    document.querySelectorAll("#weeknav .week-tab").forEach((t) =>
       t.addEventListener("click", () => showPanel(t.dataset.week))
     );
     const startHash = location.hash.replace("#", "");
