@@ -3,7 +3,7 @@
 **A 3-week digital validation workbook for early-stage founders and researchers.**
 Designed by [Lighthouse](https://lighthouse.ku.dk), University of Copenhagen.
 
-🔗 **Live site:** _add your GitHub Pages URL here once published, e.g. `https://yourusername.github.io/original-insight-workbook/`_
+🔗 **Live site:** _https://jesselamarre.github.io/original-insight-workbook/_
 
 ---
 
