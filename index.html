@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Original Insight — A 3-Week Field Guide to Validating Your Idea</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================== ICON SPRITE ===================== -->
+<svg style="display:none">
+<defs>
+<symbol id="icon-compass" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="60" cy="62" r="34" />
+  <path d="M60 22 L64 32" /><path d="M60 102 L57 92" /><path d="M22 62 L33 60" /><path d="M98 62 L88 64" />
+  <path d="M47 76 L68 44 L74 78 L47 76 Z" stroke-width="3.6" />
+  <circle cx="60" cy="62" r="3.2" fill="currentColor" stroke="none" />
+</g></symbol>
+<symbol id="icon-magnifier" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="52" cy="50" r="28" /><path d="M72 71 L96 96" /><path d="M40 44 Q48 34 60 38" stroke-width="3" />
+  <path d="M30 82 L20 92" stroke-width="3" opacity="0.5" />
+</g></symbol>
+<symbol id="icon-rocket" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M60 18 C76 30 78 56 72 76 L48 76 C42 56 44 30 60 18 Z" /><circle cx="60" cy="46" r="7" />
+  <path d="M48 66 C36 68 32 80 30 92 C40 88 46 82 50 74" /><path d="M72 66 C84 68 88 80 90 92 C80 88 74 82 70 74" />
+  <path d="M52 78 L48 100 L60 92 L72 100 L68 78" stroke-width="3.6" />
+</g></symbol>
+<symbol id="icon-lightbulb" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M60 20 C76 20 86 32 86 47 C86 60 78 66 74 76 L46 76 C42 66 34 60 34 47 C34 32 44 20 60 20 Z" />
+  <path d="M50 86 L70 86" /><path d="M53 96 L67 96" /><path d="M52 30 C48 36 47 42 49 48" stroke-width="2.6" opacity="0.6" />
+</g></symbol>
+<symbol id="icon-flag" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M34 104 L34 20" /><path d="M34 24 C50 14 58 34 74 24 L74 56 C58 66 50 46 34 56" />
+  <path d="M18 104 L52 104" stroke-width="3" opacity="0.6" />
+</g></symbol>
+<symbol id="icon-chat" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M22 34 C22 26 28 20 36 20 L84 20 C92 20 98 26 98 34 L98 66 C98 74 92 80 84 80 L48 80 L28 98 L32 80 C26 79 22 74 22 66 Z" />
+  <path d="M40 46 L80 46" stroke-width="3.4" /><path d="M40 60 L66 60" stroke-width="3.4" />
+</g></symbol>
+<symbol id="icon-seedling" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M60 100 L60 56" /><path d="M60 60 C46 60 36 50 34 36 C50 36 60 46 60 60 Z" />
+  <path d="M60 50 C70 46 78 38 80 26 C68 28 60 36 58 48" /><path d="M44 100 L76 100" stroke-width="3" opacity="0.6" />
+</g></symbol>
+<symbol id="icon-check" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M28 62 L50 84 L94 34" />
+</g></symbol>
+<symbol id="icon-target" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="60" cy="60" r="36" /><circle cx="60" cy="60" r="20" /><circle cx="60" cy="60" r="4" fill="currentColor" stroke="none" />
+</g></symbol>
+<symbol id="icon-book" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M60 30 C50 22 34 22 24 26 L24 90 C34 86 50 86 60 94" /><path d="M60 30 C70 22 86 22 96 26 L96 90 C86 86 70 86 60 94" />
+  <path d="M60 30 L60 94" stroke-width="2.6" opacity="0.5" />
+</g></symbol>
+<symbol id="icon-refresh" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M30 50 C34 34 50 22 68 24 C84 26 96 40 96 56" /><path d="M96 56 L96 36 M96 56 L76 52" />
+  <path d="M90 70 C86 86 70 98 52 96 C36 94 24 80 24 64" /><path d="M24 64 L24 84 M24 64 L44 68" />
+</g></symbol>
+<symbol id="icon-download" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M60 20 L60 74" /><path d="M38 54 L60 76 L82 54" /><path d="M26 92 L94 92" />
+</g></symbol>
+<symbol id="icon-printer" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M34 46 L34 22 L86 22 L86 46" /><rect x="20" y="46" width="80" height="36" rx="6" />
+  <path d="M34 76 L34 98 L86 98 L86 76" /><circle cx="82" cy="58" r="2.6" fill="currentColor" stroke="none" />
+</g></symbol>
+<symbol id="icon-plus" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round">
+  <path d="M60 26 L60 94" /><path d="M26 60 L94 60" />
+</g></symbol>
+<symbol id="icon-trash" viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M26 34 L94 34" /><path d="M46 34 L48 22 L72 22 L74 34" /><path d="M34 34 L38 96 L82 96 L86 34" /><path d="M60 46 L60 84" opacity="0.6" />
+</g></symbol>
+</defs>
+</svg>
+
+<!-- ===================== TOP NAV ===================== -->
+<header class="topbar">
+  <div class="brand">
+    <svg class="brand-icon"><use href="#icon-lightbulb"/></svg>
+    <span class="brand-name">Original<strong>Insight</strong></span>
+  </div>
+  <nav class="weeknav" id="weeknav">
+    <button class="week-tab active" data-week="intro">Start Here</button>
+    <button class="week-tab" data-week="week1">Week 1</button>
+    <button class="week-tab" data-week="week2">Week 2</button>
+    <button class="week-tab" data-week="week3">Week 3</button>
+    <button class="week-tab" data-week="reference">Reference</button>
+  </nav>
+  <div class="topactions">
+    <button id="btnExport" class="iconbtn" title="Download my answers"><svg><use href="#icon-download"/></svg></button>
+    <button id="btnPrint" class="iconbtn" title="Print / Save as PDF"><svg><use href="#icon-printer"/></svg></button>
+    <button id="btnReset" class="iconbtn" title="Reset workbook"><svg><use href="#icon-refresh"/></svg></button>
+  </div>
+  <div class="ku-brand">
+    <span class="ku-caption"><strong>A Lighthouse validation system</strong>University of Copenhagen</span>
+    <a href="https://lighthouse.ku.dk" target="_blank" rel="noopener">
+      <img src="https://designguide.ku.dk/download/co-branding/ku_logo_uk_hh.png" alt="University of Copenhagen logo"
+           onerror="this.closest('.ku-brand').classList.add('logo-fallback')">
+    </a>
+  </div>
+</header>
+
+<div class="layout">
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <div class="progress-card">
+      <h4>Your Progress</h4>
+      <div class="progress-row"><span>Overall</span><div class="bar"><div class="bar-fill" id="prog-overall"></div></div></div>
+      <div class="progress-row"><span>Week 1</span><div class="bar"><div class="bar-fill coral" id="prog-week1"></div></div></div>
+      <div class="progress-row"><span>Week 2</span><div class="bar"><div class="bar-fill gold" id="prog-week2"></div></div></div>
+      <div class="progress-row"><span>Week 3</span><div class="bar"><div class="bar-fill teal" id="prog-week3"></div></div></div>
+      <p class="progress-note">Saved automatically in this browser as you type.</p>
+    </div>
+    <div class="toc" id="toc"></div>
+  </aside>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main>
+    <section class="panel active" id="panel-intro">
+      <div class="cover">
+        <div class="eyebrow">A FIELD GUIDE FOR ACADEMIC INNOVATORS</div>
+        <h1>ORIGINAL<br><span class="accent">INSIGHT</span></h1>
+        <svg class="cover-icon"><use href="#icon-lightbulb"/></svg>
+        <p class="tagline">Validate what you're building, in the market and not in your head, in three weeks.</p>
+        <p style="font-family:var(--font-body); font-size:13.5px; color:var(--muted); margin-top:-8px;">A validation system designed by <strong style="color:var(--ink)">Lighthouse</strong>, University of Copenhagen.</p>
+        <div class="weekbands">
+          <div style="background:var(--coral)">WEEK 1 · DEFINE &amp; MAP</div>
+          <div style="background:var(--gold)">WEEK 2 · RANK &amp; PRIORITIZE</div>
+          <div style="background:var(--teal-soft); color:var(--ink);">WEEK 3 · EXPERIMENT &amp; LEARN</div>
+        </div>
+      </div>
+
+      <h2 class="sec">Welcome, Founder.</h2>
+      <p>Nobody gets their idea right the first time. Not the two Harvard students who wired together a demo of software they hadn't finished, for a machine they hadn't bought, to convince a stranger in New Mexico to let them try. Not the founders who paid strangers $100 to upload dating videos to a platform that would eventually become YouTube, for something else entirely. And not you, yet: which is exactly why this workbook exists.</p>
+      <p>This is a field guide for turning a promising idea into original insight: a real, evidence-backed understanding of a problem that gives you an unfair advantage in solving it. It is adapted from a 10-week, cohort-based innovation program built for early-stage founders, compressed here into a self-guided, three-week sprint you can run alone, with a co-founder, or as part of a research team.</p>
+      <p>It will not tell you whether your idea is good. Nobody can tell you that yet, including you. What it will do is walk you through a disciplined, repeatable process for finding out: define your problem, map your business model, surface the beliefs you're building on, rank them by how much they could hurt you if you're wrong, and design the cheapest possible experiments to find out before you've spent a semester (or a seed round) finding out the hard way.</p>
+      <blockquote class="pullquote">The most important skill for founders is creative problem solving. Most founders run out of resources, time and money, before they run out of creativity. The trick is picking the right problems to solve with the resources you've got.<cite>Program philosophy, Session 1</cite></blockquote>
+
+      <h2 class="sec">How This Workbook Is Built</h2>
+      <p>Three weeks, six moves. Each week pairs a short burst of thinking with a worksheet you actually fill in, right here in the browser. The moves build on each other in order:</p>
+      <ol class="steps">
+        <li>Define your problem: clearly, narrowly, and without smuggling in your solution.</li>
+        <li>Map your business model onto the canvas that matches what you're actually building.</li>
+        <li>Translate every entry on that canvas into an assumption, and separate what you know from what you merely believe.</li>
+        <li>Rank, classify, and prioritize those assumptions by risk and by how quickly you could test them.</li>
+        <li>Design a cheap, fast, falsifiable experiment for each of your top five assumptions.</li>
+        <li>Run the experiments, read the evidence honestly, and decide your next move, including, if the evidence says so, a pivot.</li>
+      </ol>
+      <p>Every chapter carries a <strong>Field Notes</strong> box, a short set of reflection prompts. These aren't busywork. They're where the actual thinking happens; the canvases just hold the output. Answer them honestly, in your own words, even when the honest answer is "I don't know yet." Your answers save automatically in this browser as you go.</p>
+      <div class="card gold">
+        <div class="kicker gold">A note on honesty</div>
+        <h4>You are not being graded on conviction.</h4>
+        <p>This process rewards people who can prove themselves wrong quickly, not people who can defend an idea forever. Treat every assumption you write down as a suspect, not a client. If the evidence doesn't support it, that is progress, not failure.</p>
+      </div>
+
+      <h2 class="sec">Four Ideas Worth Building On</h2>
+      <p>Before you open a single canvas, it helps to understand the reasoning underneath this whole process. These four ideas show up again and again across the next three weeks, treat them as your operating system.</p>
+
+      <h3 class="sub">1. Time is money, so pick your problem carefully</h3>
+      <p>The longer it takes you to identify and solve a meaningful problem, the more resources (grants, investment, or your own runway) it will take to stay focused on the work. Without a meaningful problem, you'll need a day job sooner than you'd like. That's not a threat, it's arithmetic. It's precisely why this program allocates the majority of its time to problem and solution validation, rather than building.</p>
+      <div class="card coral">
+        <div class="kicker coral">Worked example</div>
+        <h4>The Goldilocks Zone</h4>
+        <p>Plot potential markets on two axes: how large the market is, and how acute (painful) the problem is. The tempting answer, a huge market with a screamingly painful problem, is almost never available to a small team; if it were, someone with more resources would already own it.</p>
+        <p>The sweet spot for a founder with limited resources is a small but committed group of people with a problem painful enough that they'd pay to solve it today. Microsoft's first product was software for the Altair 8800, one of the first personal computers, and a niche so small that Bill Gates and Paul Allen didn't even own the machine when they wrote to its manufacturer offering a demo. They built the prototype on borrowed university computers in the two weeks before the meeting. The niche was tiny. The problem was acute. That combination is what let a two-person team compete at all.</p>
+      </div>
+
+      <h3 class="sub">2. Problem before solution, always</h3>
+      <p>Every venture (a tech startup, a social enterprise, a research spin-out) needs to solve a real problem for real people before anything else matters. This program (and this workbook) is built around a simple roadmap for how ventures actually mature:</p>
+      <ul class="bullets">
+        <li><strong>Founder-Startup Fit:</strong> do you have the skills, network, and staying power for this specific problem?</li>
+        <li><strong>Problem Fit:</strong> does this problem exist, and does it matter to the people who have it?</li>
+        <li><strong>Problem-Solution Fit:</strong> does your proposed solution actually address that problem? (More on this, it's a spectrum and not a milestone, in Week 1.)</li>
+        <li><strong>Business Model Fit:</strong> can you deliver that solution to people sustainably?</li>
+        <li><strong>Product-Market Fit:</strong> have you made something people want, that you can find and keep customers for, and that you can profitably deliver at scale?</li>
+        <li><strong>Growth.</strong></li>
+      </ul>
+      <p>Notice where the arrow starts: identifying a compelling problem comes before anything else. Only after that should you develop a solution. If you find yourself back at problem-fit after weeks of solution work, that's not a step backward, it's the process working.</p>
+
+      <h3 class="sub">3. Desirability, Feasibility, Viability, and Responsibility</h3>
+      <p>Design thinking spent decades asking one question: do people want this? That's desirability, and it works, right up until you realize that wanting something and it making business sense are different things. Everyone would like more legroom on a flight; nobody wants to pay for the four seats that legroom would displace. So teams learned to also ask: can we actually build this (feasibility), and does it make business sense (viability)? Balancing all three is the foundation of business design, and it's also a map of exactly why most new ventures fail: desirability failure (nobody wants it), feasibility failure (it can't be built, or not affordably), or viability failure (it can't be produced cheaply enough to sell profitably).</p>
+      <p>This workbook adds a fourth lens on purpose: responsibility. Just because something can be built, and people might buy it, doesn't mean it should exist. As a founder or researcher, you carry some responsibility for aligning what you build with social and ethical standards, not as an afterthought but as a design constraint from day one.</p>
+
+      <h3 class="sub">4. Nobody gets it right the first time</h3>
+      <p>Across a large sample of successful startups studied by researchers, the substantial majority made at least one significant pivot, and many pivoted more than once. A pivot doesn't mean your original idea was bad. It means you listened to the market, tested, and adapted: the only strategy that has ever reliably worked.</p>
+      <div class="card teal">
+        <div class="kicker teal">The Math of Pivoting</div>
+        <h4>Number of pivots = Total funding ÷ pivot burn rate</h4>
+        <p>If a typical early funding round buys you 12–18 months of runway, and each major pivot burns 3–6 months of execution time to re-validate, you get roughly three shots before the money runs out. Every month you delay recognizing that a pivot is needed is runway spent defending the wrong thesis. Pivot early, the data is unambiguous that it's cheaper.</p>
+      </div>
+      <p>Refusing to pivot when the evidence says otherwise is one of the fastest ways to kill a venture. This workbook is built to make that evidence impossible to ignore.</p>
+
+      <h2 class="sec">Ground Rules for the Next Three Weeks</h2>
+      <p>Borrowed from the cohort program this workbook is adapted from, six commitments worth making to yourself before you begin, especially if you're doing this without teammates or classmates to keep you honest.</p>
+      <ul class="bullets">
+        <li><strong>Embrace all perspectives.</strong> If you interview people, or work with others, treat different backgrounds and different takes as data, not noise.</li>
+        <li><strong>Be prepared to pivot.</strong> Your solution might look very different in three weeks. That's a sign the process is working, not that you failed. You can always return to your original idea; just follow the evidence in the meantime.</li>
+        <li><strong>Progress over perfection.</strong> At this stage, speed of learning beats polish. Ship rough experiments, gather signal quickly, and iterate rather than over-investing in something unvalidated.</li>
+        <li><strong>Share learnings, not just outcomes.</strong> If you're doing this with peers, a failed experiment that's clearly documented is worth more to the group than a vague success story.</li>
+        <li><strong>Respect confidentiality.</strong> If you're working alongside other founders, what's shared in the room stays in the room. Ideas alone aren't especially valuable (execution is), but people still deserve to keep their ideas their own.</li>
+        <li><strong>This is a shared experience.</strong> If you're facilitating this for a cohort, sometimes group progress has to take priority over any one person's pace. Plan accordingly.</li>
+      </ul>
+
+      <div style="text-align:center; margin:36px 0;">
+        <button class="week-tab" style="font-size:16px; padding:12px 28px;" onclick="document.querySelector('[data-week=week1]').click()">Start Week 1 →</button>
+      </div>
+    </section>
+    <section class="panel" id="panel-week1">
+      <div class="weekhero coral">
+        <svg class="hero-icon"><use href="#icon-compass"/></svg>
+        <div class="eyebrow">WEEK 1</div>
+        <h1>Define &amp; Map</h1>
+        <div class="subtitle">Find the problem before you fall in love with a solution.</div>
+        <div class="days">Days 1–2 · Problem Definition &nbsp;&nbsp;·&nbsp;&nbsp; Days 3–5 · Business Model Canvas</div>
+      </div>
+
+      <div class="kicker coral">Move 1</div>
+      <h1 class="pagehead">Define Your Problem</h1>
+      <p>Academic innovators, more than almost anyone, tend to merge problem and solution. You've spent years getting good at building things: a model, a method, a prototype, a paper. That instinct to jump to a solution is exactly what this exercise disciplines.</p>
+
+      <h2 class="sec">What Counts As a Problem</h2>
+      <div class="card coral">
+        <h4>A problem is a meaningful difficulty, friction, or unmet need that a specific user experiences when trying to achieve a goal in a particular context.</h4>
+        <p>This is a narrower definition than you might expect. In a business or research-translation sense, a problem is not a general issue or an idea space, it has four required components.</p>
+      </div>
+      <ul class="bullets">
+        <li><strong>It belongs to someone identifiable,</strong> not "people in general."</li>
+        <li><strong>It exists in relation to a desired outcome,</strong> a goal the person is trying to reach.</li>
+        <li><strong>Something prevents them</strong> from achieving that goal easily or effectively.</li>
+        <li><strong>It occurs in a specific situation,</strong> not everywhere, all the time, for everyone.</li>
+      </ul>
+
+      <h2 class="sec">The Problem Statement Formula</h2>
+      <p>Describe your problem using only these four elements: who experiences it, when it occurs, what happens, and why it matters, and nothing else. It is forbidden to mention your solution, or any technological term tied to it.</p>
+      <div class="card coral">
+        <div class="kicker coral">Build it live</div>
+        <h4>"When [specific actor] is in [specific situation], they struggle with [specific difficulty], which leads to [negative consequence]."</h4>
+        <p>A strong problem statement is observable, user-anchored, goal-linked, and solution-agnostic. Fill in the four blanks below, they'll compose into your statement automatically.</p>
+        <div class="card-grid">
+          <div class="field"><label>Specific actor</label><span class="hint">Who experiences it?</span><input type="text" data-key="w1.problem.actor" placeholder="e.g. a first-year PhD student"></div>
+          <div class="field"><label>Specific situation</label><span class="hint">When does it occur?</span><input type="text" data-key="w1.problem.situation" placeholder="e.g. when writing their first literature review"></div>
+          <div class="field"><label>Specific difficulty</label><span class="hint">What happens?</span><input type="text" data-key="w1.problem.difficulty" placeholder="e.g. they can't tell which papers actually matter"></div>
+          <div class="field"><label>Negative consequence</label><span class="hint">Why does it matter?</span><input type="text" data-key="w1.problem.consequence" placeholder="e.g. they waste weeks reading the wrong sources"></div>
+        </div>
+        <div class="field" style="margin-top:10px;">
+          <label>Your composed problem statement</label>
+          <p id="problemStatementOut" style="font-family:var(--font-head); font-style:italic; font-size:16px; background:var(--white); border-radius:8px; padding:12px; border:1px dashed var(--muted);">Fill in the four fields above to see your statement here.</p>
+        </div>
+      </div>
+
+      <h2 class="sec">Why Bother? Problem Validation Determines Two Things</h2>
+      <p>First, whether there is a market for your idea at all. You might have a genuinely bright idea, but without a market, you can't build a sustainable business or research spin-out around it. Problems that are acute, genuinely painful, are the ones people will pay to have solved. This is the same Goldilocks logic from the introduction: a small, committed, high-pain audience beats a large, indifferent one.</p>
+      <p>Second, problem validation sets the scope of your solution. Charles Kettering, former head of research at General Motors, put it well: a problem well-stated is a problem half-solved. A problem with no boundaries has an infinite number of possible solutions, you'll build forever and please no one. Good problems are bounded: they require few features to solve well.</p>
+      <div class="card gold">
+        <div class="kicker gold">Historical case</div>
+        <h4>Bounded problems win</h4>
+        <p>In 1975, two college students noticed a narrow, specific problem: early personal computers were hard to program, which made them unattractive to almost everyone except hobbyists. They didn't try to solve computing. They wrote one piece of software, for one machine, for one small audience, and that bounded, specific problem became the foundation of Microsoft.</p>
+      </div>
+
+      <h3 class="sub">Do this now</h3>
+      <ol class="steps">
+        <li>Draft your problem statement using the formula above (10 minutes). Say it out loud, does it name a real, specific person? Or does it describe "everyone"?</li>
+        <li>Cross-check it (5–10 minutes). Hand it to a labmate, classmate, or even a stranger, and ask: is this clearly a problem, or is it still partly a solution pitch? Is it observable? Is it specific enough to test?</li>
+        <li>Revise until your statement survives the cross-check without you needing to explain or defend it.</li>
+      </ol>
+
+      <div class="reflect">
+        <div class="kicker lilac"><svg style="width:16px;height:16px;"><use href="#icon-chat"/></svg> Field Notes</div>
+        <p class="prompt">Who, specifically, experiences this problem? Could you point to three real people by name?</p>
+        <textarea data-key="w1.reflect1"></textarea>
+        <p class="prompt">What have they already tried to fix it themselves, and why hasn't that worked?</p>
+        <textarea data-key="w1.reflect2"></textarea>
+        <p class="prompt">If you removed every mention of your intended solution from your notes, would the problem statement still stand on its own?</p>
+        <textarea data-key="w1.reflect3"></textarea>
+      </div>
+
+      <div class="kicker coral">Move 2</div>
+      <h1 class="pagehead">Map Your Business Model</h1>
+      <p>With your problem statement in hand, it's time to put the whole picture on one page: problem, solution, customers, and economics together. Pick the canvas that matches what you're building. All three work the same way: read them as a living document, not a form you complete once.</p>
+
+      <h2 class="sec">A Worked Example: Mapping IKEA</h2>
+      <p>Before you fill in your own, it helps to see the reasoning behind each box, using a business everyone already understands.</p>
+      <ul class="bullets">
+        <li><strong>Problem:</strong> Furniture is expensive. Less obviously, urban transportation constraints mean furniture has to fit in small cars and up narrow stairwells.</li>
+        <li><strong>Customer Segments:</strong> Budget-conscious, mobile, often first-time furniture buyers, students, young renters, new households.</li>
+        <li><strong>Unique Value Proposition:</strong> Frame it as We are building [X] for [Y] because [Z], this should shape your solution, not the other way around.</li>
+        <li><strong>Solution:</strong> Flat-packed, self-assembled, self-service warehouse retail. Notice this box is smaller than the Problem box on purpose.</li>
+        <li><strong>Unfair Advantage:</strong> Vertically integrated flat-pack design and self-service logistics that keep costs, and prices, structurally lower than competitors.</li>
+      </ul>
+      <div class="card lilac">
+        <div class="kicker lilac">Why value comes before solution</div>
+        <h4>Value isn't universal.</h4>
+        <p>What you find valuable about your own idea isn't necessarily what someone else will perceive as valuable. Ask three different people to "sell" you the same ordinary object and you'll get three different pitches, the ones that land are the ones that meet the buyer in their own context. Keep this in mind as you write your Unique Value Proposition: you are guessing, for now, which is exactly why Week 2 exists.</p>
+      </div>
+
+      <h2 class="sec">Three Lenses of Canvas Risk</h2>
+      <p>Beyond being a map of your venture, your canvas doubles as a risk-finding tool. As you fill it in, notice which boxes you filled in confidently and which you're guessing at:</p>
+      <ul class="bullets">
+        <li><strong>Product Risk:</strong> am I building the right thing? (Problem, Solution, Unique Value Proposition)</li>
+        <li><strong>Customer Risk:</strong> does the customer I'm picturing exist, and do they care? (Customer Segments, Early Adopters, Channels)</li>
+        <li><strong>Market / Economic Risk:</strong> can this support a real venture? (Cost Structure, Revenue Streams, Key Metrics)</li>
+      </ul>
+
+      <h2 class="sec">Choose &amp; Fill In Your Canvas</h2>
+      <p>Not sure which to pick? Answer the four questions in the Reference tab's diagnostic first. Otherwise, choose below, your choice is remembered.</p>
+      <div class="canvas-picker">
+        <button data-canvas="lean" class="active"><svg style="width:14px;height:14px;"><use href="#icon-target"/></svg> Lean Canvas<small>Products &amp; product-service systems</small></button>
+        <button data-canvas="social"><svg style="width:14px;height:14px;"><use href="#icon-seedling"/></svg> Social Business Model<small>Social ventures &amp; non-profits</small></button>
+        <button data-canvas="service"><svg style="width:14px;height:14px;"><use href="#icon-chat"/></svg> Service Mapping<small>Consultancies &amp; services</small></button>
+      </div>
+
+      <div class="canvas-choice active" data-canvas="lean">
+        <div class="canvas-banner" style="background:var(--coral)"><h3>The Lean Canvas</h3><p>For products, apps, and product-service systems, one page, nine boxes, built to be rewritten.</p></div>
+        <div class="canvas-grid" style="grid-template-columns:repeat(5,1fr);">
+          <div class="canvas-cell" style="grid-row:1;"><h5>1 · Problem</h5><span class="hint">Top 1–3 problems worth solving.</span><textarea data-key="lean.problem"></textarea></div>
+          <div class="canvas-cell" style="grid-row:1;"><h5>4 · Solution</h5><span class="hint">Top 3 features of your MVP.</span><textarea data-key="lean.solution"></textarea></div>
+          <div class="canvas-cell" style="grid-row:1/3;"><h5>3 · Unique Value Proposition</h5><span class="hint">One clear, compelling reason you're different.</span><textarea data-key="lean.uvp" style="min-height:180px;"></textarea></div>
+          <div class="canvas-cell" style="grid-row:1;"><h5>7 · Unfair Advantage</h5><span class="hint">Something that (ideally) can't be copied.</span><textarea data-key="lean.advantage"></textarea></div>
+          <div class="canvas-cell" style="grid-row:1;"><h5>2 · Customer Segments</h5><span class="hint">Your target customers and users.</span><textarea data-key="lean.segments"></textarea></div>
+
+          <div class="canvas-cell" style="grid-row:2;"><h5>Existing Alternatives</h5><span class="hint">How is this solved today, without you?</span><textarea data-key="lean.alternatives"></textarea></div>
+          <div class="canvas-cell" style="grid-row:2;"><h5>5 · Key Metrics</h5><span class="hint">Numbers that tell you how you're doing.</span><textarea data-key="lean.metrics"></textarea></div>
+          <div class="canvas-cell" style="grid-row:2;"><h5>6 · Channels</h5><span class="hint">Your path to customers.</span><textarea data-key="lean.channels"></textarea></div>
+          <div class="canvas-cell" style="grid-row:2;"><h5>Early Adopters</h5><span class="hint">Characteristics of your ideal first customer.</span><textarea data-key="lean.adopters"></textarea></div>
+
+          <div class="canvas-cell" style="grid-column:1/3; grid-row:3;"><h5>8 · Cost Structure</h5><span class="hint">Fixed and variable costs.</span><textarea data-key="lean.costs"></textarea></div>
+          <div class="canvas-cell" style="grid-column:3/6; grid-row:3;"><h5>9 · Revenue Streams</h5><span class="hint">Your sources of revenue.</span><textarea data-key="lean.revenue"></textarea></div>
+        </div>
+      </div>
+
+      <div class="canvas-choice" data-canvas="social">
+        <div class="canvas-banner" style="background:var(--teal)"><h3>The Social Business Model Canvas</h3><p>For social ventures, non-profits, and associations, where impact is the return on investment.</p></div>
+        <div class="canvas-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="canvas-cell"><h5>Beneficiaries</h5><span class="hint">Who experiences the issue you address?</span><textarea data-key="social.beneficiaries"></textarea></div>
+          <div class="canvas-cell"><h5>Customers</h5><span class="hint">Who will actually pay, if different from beneficiary?</span><textarea data-key="social.customers"></textarea></div>
+          <div class="canvas-cell"><h5>Social Value Proposition</h5><span class="hint">What do beneficiaries get from this?</span><textarea data-key="social.value"></textarea></div>
+          <div class="canvas-cell"><h5>Impact Measures</h5><span class="hint">How will you show social impact?</span><textarea data-key="social.impact"></textarea></div>
+
+          <div class="canvas-cell"><h5>Key Activities</h5><span class="hint">Programme &amp; non-programme activities.</span><textarea data-key="social.activities"></textarea></div>
+          <div class="canvas-cell"><h5>Actors &amp; Stakeholders</h5><span class="hint">Who do you need to involve?</span><textarea data-key="social.actors"></textarea></div>
+          <div class="canvas-cell"><h5>Channels</h5><span class="hint">How are you reaching people?</span><textarea data-key="social.channels"></textarea></div>
+          <div class="canvas-cell"><h5>Key Resources</h5><span class="hint">People, finance, access needed.</span><textarea data-key="social.resources"></textarea></div>
+
+          <div class="canvas-cell" style="grid-column:1/3;"><h5>Cost Structure</h5><span class="hint">Biggest expenditure areas, and how they scale.</span><textarea data-key="social.costs"></textarea></div>
+          <div class="canvas-cell" style="grid-column:3/5;"><h5>Revenue Streams &amp; Surplus</h5><span class="hint">Where revenue comes from, and where surplus is reinvested.</span><textarea data-key="social.revenue"></textarea></div>
+        </div>
+      </div>
+
+      <div class="canvas-choice" data-canvas="service">
+        <div class="canvas-banner" style="background:var(--lilac)"><h3>The Service Mapping Canvas</h3><p>For consultancies and human-delivered services, where the "product" is an interaction, not an artifact.</p></div>
+        <div class="canvas-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="canvas-cell"><h5>Users</h5><span class="hint">Who are (or will be) the users?</span><textarea data-key="service.users"></textarea></div>
+          <div class="canvas-cell"><h5>Service Proposition</h5><span class="hint">Why would someone use this service?</span><textarea data-key="service.proposition"></textarea></div>
+          <div class="canvas-cell"><h5>Channels</h5><span class="hint">Through which channels is it available?</span><textarea data-key="service.channels"></textarea></div>
+          <div class="canvas-cell"><h5>Key Activities</h5><span class="hint">Which activities are essential?</span><textarea data-key="service.activities"></textarea></div>
+
+          <div class="canvas-cell"><h5>Actors</h5><span class="hint">Partners, suppliers, stakeholders.</span><textarea data-key="service.actors"></textarea></div>
+          <div class="canvas-cell"><h5>Usage</h5><span class="hint">How frequently is it used?</span><textarea data-key="service.usage"></textarea></div>
+          <div class="canvas-cell"><h5>Competitors</h5><span class="hint">What other options do users have today?</span><textarea data-key="service.competitors"></textarea></div>
+          <div class="canvas-cell"><h5>Key Resources</h5><span class="hint">Physical, tech, and human resources.</span><textarea data-key="service.resources"></textarea></div>
+
+          <div class="canvas-cell" style="grid-column:1/3;"><h5>Costs</h5><span class="hint">Most cost-effective way to deliver.</span><textarea data-key="service.costs"></textarea></div>
+          <div class="canvas-cell" style="grid-column:3/5;"><h5>ROI &amp; KPIs / Challenges</h5><span class="hint">How it pays for itself, and current challenges.</span><textarea data-key="service.roi"></textarea></div>
+        </div>
+      </div>
+
+      <h2 class="sec">Problem Red Flags</h2>
+      <p>Before you consider your canvas finished, stress-test the Problem box against six patterns that quietly kill otherwise well-built ventures.</p>
+      <div class="card-grid">
+        <div class="card coral"><div class="kicker coral">Red Flag 1</div><h4>The Reasoned Problem</h4><p>A problem invented by the founder, not sourced from real users. Ask yourself: who explicitly told me they have this problem?</p></div>
+        <div class="card coral"><div class="kicker coral">Red Flag 2</div><h4>The Non-Problem</h4><p>Something founders label a problem even though the people living it don't see it that way. Ask yourself: who told me this is actually a problem for them?</p></div>
+        <div class="card coral"><div class="kicker coral">Red Flag 3</div><h4>The No-Owner Problem</h4><p>A vague issue with no clear person or group responsible for caring, or paying. Ask yourself: who cares enough about this to act, or to pay?</p></div>
+        <div class="card coral"><div class="kicker coral">Red Flag 4</div><h4>The Umbrella Problem</h4><p>A problem defined too broadly, "climate change," "mental health," "education." Ask yourself: what exact sub-problem do we solve directly?</p></div>
+        <div class="card coral"><div class="kicker coral">Red Flag 5</div><h4>The Overview / Info Problem</h4><p>Customers say they're overwhelmed or just need more information. Ask yourself: what have people actually tried to fix or find, before I showed up?</p></div>
+        <div class="card coral"><div class="kicker coral">Red Flag 6</div><h4>Your Goal as a Problem</h4><p>Treating your organization's objective as if it were a customer's pain. Ask yourself: do I understand what outcome the customer wants, independent of what I want from them?</p></div>
+      </div>
+
+      <h2 class="sec">The Problem-Solution Fit Spectrum</h2>
+      <p>Problem-solution fit isn't a single milestone, it's a spectrum of evidence. Think of each level as a bucket that fills with evidence over time.</p>
+      <div class="card-grid">
+        <div class="card teal"><div class="kicker teal">Level 1 · Reasoned Fit</div><h4>It's logically correct, in your head.</h4><p>Example: hating flat bicycle tires enough to imagine a solid rubber tire that never goes flat, with zero evidence beyond "this should logically work."</p></div>
+        <div class="card teal"><div class="kicker teal">Level 2 · Perceived Fit</div><h4>People believe it would work, once they see it.</h4><p>Example: finding that solid-tire product online and believing, as a buyer, it would solve your problem, even before you've bought it.</p></div>
+        <div class="card teal"><div class="kicker teal">Level 3 · Demonstrated Fit</div><h4>You can prove it works, under controlled conditions.</h4><p>Example: actually running the solid tire over nails and glass to show, live, that it doesn't go flat.</p></div>
+        <div class="card teal"><div class="kicker teal">Level 4 · Observed Fit</div><h4>People use it, unprompted, in everyday life.</h4><p>Example: seeing bike-share fleets running run-flat tires for years with no intervention from the manufacturer.</p></div>
+      </div>
+
+      <div class="reflect">
+        <div class="kicker lilac"><svg style="width:16px;height:16px;"><use href="#icon-chat"/></svg> Field Notes</div>
+        <p class="prompt">Which canvas box did you fill in fastest, without hesitating? Which one took the longest, or felt like a guess?</p>
+        <textarea data-key="w1.reflect4"></textarea>
+        <p class="prompt">Does your problem trip any of the six red flags? If so, which one, and what would it take to address it?</p>
+        <textarea data-key="w1.reflect5"></textarea>
+        <p class="prompt">Honestly, which level of problem-solution fit are you actually at today?</p>
+        <textarea data-key="w1.reflect6"></textarea>
+      </div>
+
+      <div style="text-align:center; margin:36px 0;">
+        <button class="week-tab" style="font-size:16px; padding:12px 28px;" onclick="document.querySelector('[data-week=week2]').click()">Continue to Week 2 →</button>
+      </div>
+    </section>
+    <section class="panel" id="panel-week2">
+      <div class="weekhero gold">
+        <svg class="hero-icon"><use href="#icon-magnifier"/></svg>
+        <div class="eyebrow">WEEK 2</div>
+        <h1>Rank &amp; Prioritize</h1>
+        <div class="subtitle">Not all beliefs are equally dangerous. Find the ones that are.</div>
+        <div class="days">Days 6–7 · Translate to Assumptions &nbsp;&nbsp;·&nbsp;&nbsp; Days 8–10 · Rank, Classify &amp; Prioritize</div>
+      </div>
+
+      <div class="kicker gold">Move 3</div>
+      <h1 class="pagehead">Translate Your Canvas Into Assumptions</h1>
+      <p>Every business model is built on a set of underlying beliefs, whether you're aware of them or not. This chapter surfaces what's sitting beneath the surface of the canvas you just filled in.</p>
+      <div class="card gold">
+        <h4>An assumption is a hypothesis about customers, problems, solutions, behaviors, markets, or economics that has not yet been validated with evidence.</h4>
+        <p>If you can't point to real evidence (interviews, behavioral data, market data, a working prototype) for an entry on your canvas, it's an assumption, not a fact.</p>
+      </div>
+
+      <h2 class="sec">Six Kinds of Assumption</h2>
+      <ul class="bullets">
+        <li><strong>Solution assumptions:</strong> e.g., "Users prefer a mobile app over a web platform."</li>
+        <li><strong>Customer assumptions:</strong> e.g., "Early adopters are biotech startups, not pharma corporations."</li>
+        <li><strong>Problem assumptions:</strong> e.g., "Small clinics lose revenue due to inefficient patient scheduling."</li>
+        <li><strong>Behavior assumptions:</strong> e.g., "Researchers will trust AI-generated summaries."</li>
+        <li><strong>Market assumptions:</strong> beliefs about the size, growth, or structure of your total addressable market.</li>
+        <li><strong>Economic assumptions:</strong> beliefs about pricing, cost structure, or unit economics.</li>
+      </ul>
+      <p>You don't need hard evidence for every single decision: some things you already know to be true. But watch the gap between a general fact and your specific claim, that's one of the most common ways founders fool themselves.</p>
+
+      <h2 class="sec">Why This Matters</h2>
+      <ol class="steps">
+        <li><strong>It prevents self-deception.</strong> Early-stage work is a lot like a criminal investigation, you're operating under extreme uncertainty, and your job is to follow the evidence, not defend a theory you've already fallen for.</li>
+        <li><strong>It reduces risk efficiently.</strong> Not all assumptions are equal. Naming them lets you focus on the highest-risk ones first, the same way a detective runs down the strongest lead first.</li>
+        <li><strong>It turns activity into structured learning.</strong> With this structure, a pivot becomes a rational business decision instead of an emotional defeat.</li>
+      </ol>
+      <div class="card coral">
+        <div class="kicker coral">The pivot math, revisited</div>
+        <h4>79%</h4>
+        <p>In studies of startups that found real success, the substantial majority made at least one significant pivot, and it was common for that to happen more than once. As covered earlier, your runway only affords about three pivots, so the earlier you catch a bad assumption, the more shots you preserve.</p>
+      </div>
+
+      <h3 class="sub">Do this now</h3>
+      <ol class="steps">
+        <li>Copy every assumption-shaped entry from your canvas into the Assumption Bank below (aim for 6–20 total, add rows as needed).</li>
+        <li>For each one, note the evidence you have, or write "none yet", honestly.</li>
+        <li>Trade your list with a peer, a labmate, or run it past a mentor. Ask: what did I miss?</li>
+      </ol>
+
+      <h2 class="sec">Your Assumption Bank</h2>
+      <table class="repeat-table">
+        <thead><tr><th>#</th><th>Assumption</th><th>Category</th><th>Evidence (if any)</th><th></th></tr></thead>
+        <tbody id="assumptionBody"></tbody>
+      </table>
+      <button class="addbtn" id="addAssumption"><svg><use href="#icon-plus"/></svg> Add assumption</button>
+
+      <div class="reflect">
+        <div class="kicker lilac"><svg style="width:16px;height:16px;"><use href="#icon-chat"/></svg> Field Notes</div>
+        <p class="prompt">Which of your assumptions surprised you once you saw it written down plainly?</p>
+        <textarea data-key="w2.reflect1"></textarea>
+        <p class="prompt">Where did you realize you had less evidence than you thought?</p>
+        <textarea data-key="w2.reflect2"></textarea>
+        <p class="prompt">Pick your single highest-conviction assumption. What is it actually built on?</p>
+        <textarea data-key="w2.reflect3"></textarea>
+      </div>
+
+      <div class="kicker gold">Move 4</div>
+      <h1 class="pagehead">Rank, Classify &amp; Prioritize</h1>
+      <p>Not all assumptions are equally important, and not all are equally uncertain. This gives you a repeatable system for figuring out which of your assumptions deserve your limited time in Week 3.</p>
+
+      <h2 class="sec">Step 1 &amp; 2 · Plot &amp; Score</h2>
+      <ul class="bullets">
+        <li><strong>High confidence, high importance:</strong> you've cracked the code here.</li>
+        <li><strong>High importance, high uncertainty:</strong> you're in trouble if you don't figure this out. Critical assumptions live here.</li>
+        <li><strong>Low importance, either level of certainty:</strong> not a priority right now.</li>
+      </ul>
+      <div class="card-grid">
+        <div class="card gold">
+          <div class="kicker gold">Uncertainty scale (1 = very low, 5 = very high)</div>
+          <p>1: Real-world usage or market data strongly confirms it.<br>2: Behavioral tests or early prototypes support it.<br>3: Multiple customer interviews point the same direction.<br>4: Limited anecdotal evidence, or a few informal chats.<br>5: Based only on opinion or speculation.</p>
+        </div>
+        <div class="card gold">
+          <div class="kicker gold">Importance scale (1 = very low, 5 = very high)</div>
+          <p>1: If wrong, little impact on the venture.<br>2: If wrong, a minor, easily-adapted problem.<br>3: If wrong, meaningful changes needed.<br>4: If wrong, meaningful, possibly fundamental, changes.<br>5: If wrong, the venture would likely fail entirely.</p>
+        </div>
+      </div>
+      <div class="card coral"><h4>Risk = Importance × Uncertainty</h4><p>A quick way to surface which assumptions are quietly generating the most danger for your venture. The number itself is more useful than the label, because it lets you rank, not just categorize.</p></div>
+
+      <h2 class="sec">Worked Example: QuickPrep</h2>
+      <p>QuickPrep is a fictional AI exam-prep app for university students, priced at €8/month. Here's how four of its assumptions score:</p>
+      <ul class="bullets">
+        <li><strong>"Students want quiz-based self-testing."</strong> Low uncertainty (30 interviews support it) but high importance, a foundational assumption.</li>
+        <li><strong>"Students will use daily quizzes all semester."</strong> High uncertainty and high importance, this is the critical assumption.</li>
+        <li><strong>"Students will pay €8/month."</strong> High uncertainty but comparatively low importance, flexible, not existential.</li>
+        <li><strong>"The AI can generate quiz questions from slides."</strong> Low uncertainty and low importance, a technical problem, not a business risk.</li>
+      </ul>
+
+      <h2 class="sec">Step 4 · Classify the Type of Risk</h2>
+      <ul class="bullets">
+        <li><strong>Problem Risk:</strong> the problem is real and painful.</li>
+        <li><strong>Solution Risk:</strong> your solution actually solves it.</li>
+        <li><strong>Customer Risk:</strong> the target customer exists, and cares.</li>
+        <li><strong>Behavior Risk:</strong> customers will actually change their behavior to adopt the solution, often the hardest to retire.</li>
+        <li><strong>Economic Risk:</strong> the venture can generate sustainable revenue.</li>
+        <li><strong>Market Risk:</strong> the total market is large enough to support a viable venture.</li>
+      </ul>
+      <div class="card teal">
+        <div class="kicker teal">A useful mental model</div>
+        <h4>Dependency logic</h4>
+        <p>Read this chain top to bottom: a market must exist → customers must have a real problem → your solution must solve it → customers must adopt it → customers must pay → the economics must work. If an early link fails, everything above it collapses.</p>
+      </div>
+
+      <h3 class="sub">Do this now, classify your top assumptions</h3>
+      <p>For each of your most important assumptions, fill out a risk profile card. Be concrete with validation criteria, "people seemed interested" is not one; "5 of 8 interviewed lab managers say they'd switch within a semester" is.</p>
+      <div id="riskCardsWrap"></div>
+      <button class="addbtn" id="addRisk"><svg><use href="#icon-plus"/></svg> Add another assumption card</button>
+
+      <h2 class="sec">Step 5 · Factor in Time to Test</h2>
+      <p>A simple Risk score identifies your biggest risks, but not necessarily the best one to test next. Add a third dimension: how quickly could you realistically get evidence?</p>
+      <div class="card gold">
+        <div class="kicker gold">Time-to-test scale (1 = very slow, 5 = immediate)</div>
+        <p>1: Only after significant development or a long timeframe.<br>2: Requires building substantial parts of the product.<br>3: A functional prototype or structured experiment.<br>4: Easy tests, landing pages, simple prototypes.<br>5: Immediately, through interviews, observation, or existing data.</p>
+      </div>
+      <div class="card coral"><h4>Priority = Risk × Time-to-Test</h4><p>This biases you toward high-risk assumptions that can also be tested quickly, dramatically improving your speed of learning.</p></div>
+      <div class="card coral">
+        <div class="kicker coral">The catch</div>
+        <h4>Set a minimum importance threshold first.</h4>
+        <p>A pure Risk × Testability score can let trivial-but-easy-to-test assumptions outscore ones that actually matter. Fix: exclude anything scoring below 4 on importance before you rank by priority.</p>
+      </div>
+
+      <h2 class="sec">Your Prioritization Table</h2>
+      <p>List your highest-importance assumptions, score them, Risk and Priority calculate automatically. Your top five, after this table, become your Week 3 experiments.</p>
+      <table class="repeat-table">
+        <thead><tr><th>#</th><th>Assumption</th><th>Importance<br>(1–5)</th><th>Uncertainty<br>(1–5)</th><th>Risk</th><th>Time to Test<br>(1–5)</th><th>Priority</th><th></th></tr></thead>
+        <tbody id="priorityBody"></tbody>
+      </table>
+      <button class="addbtn" id="addPriority"><svg><use href="#icon-plus"/></svg> Add row</button>
+
+      <div class="reflect">
+        <div class="kicker lilac"><svg style="width:16px;height:16px;"><use href="#icon-chat"/></svg> Field Notes</div>
+        <p class="prompt">Which single assumption, if it turned out false, would do the most damage to your venture?</p>
+        <textarea data-key="w2.reflect4"></textarea>
+        <p class="prompt">Which of your top-priority assumptions surprised you?</p>
+        <textarea data-key="w2.reflect5"></textarea>
+        <p class="prompt">Is one risk type suspiciously absent from your top five? Why might that be?</p>
+        <textarea data-key="w2.reflect6"></textarea>
+      </div>
+
+      <div style="text-align:center; margin:36px 0;">
+        <button class="week-tab" style="font-size:16px; padding:12px 28px;" onclick="document.querySelector('[data-week=week3]').click()">Continue to Week 3 →</button>
+      </div>
+    </section>
+    <section class="panel" id="panel-week3">
+      <div class="weekhero teal">
+        <svg class="hero-icon"><use href="#icon-rocket"/></svg>
+        <div class="eyebrow">WEEK 3</div>
+        <h1>Experiment &amp; Learn</h1>
+        <div class="subtitle">Move from belief to evidence, cheaply, quickly, and on purpose.</div>
+        <div class="days">Days 11–12 · Design Your Experiments &nbsp;&nbsp;·&nbsp;&nbsp; Days 13–15 · Run, Review &amp; Re-Prioritize</div>
+      </div>
+
+      <div class="kicker teal">Move 5</div>
+      <h1 class="pagehead">Design Your Experiments</h1>
+      <p>An experiment is a procedure undertaken to make a discovery, test a hypothesis, or demonstrate a known fact. Here, you're using targeted experiments to validate or invalidate your top-priority assumptions, as cheaply and quickly as possible.</p>
+
+      <h2 class="sec">What Makes an Experiment Good</h2>
+      <ul class="bullets">
+        <li><strong>Measurable:</strong> a clear metric or observable outcome, known before you start.</li>
+        <li><strong>Specific:</strong> it focuses on a single assumption, not several variables at once.</li>
+        <li><strong>Time-bound:</strong> it produces results within a defined window.</li>
+        <li><strong>Falsifiable:</strong> and the one most founders skip, the experiment must be able to realistically prove the assumption wrong, not just confirm it. A "no" result is exactly as valuable as a "yes."</li>
+      </ul>
+
+      <h2 class="sec">Critique Before You Design</h2>
+      <div class="card teal"><div class="kicker teal">Experiment A</div><h4>"We believe offering AI quizzes via a simple form will get 15 sign-ups in a week."</h4><p>Tests real behavior, but doesn't measure whether the quizzes are actually useful. Stronger: also track completion and repeat requests. Interest isn't the same as value.</p></div>
+      <div class="card teal"><div class="kicker teal">Experiment B</div><h4>"We'll ask students if they'd pay €5/month, and see if 10 say yes."</h4><p>Relies on stated intent, not real behavior. Stronger: ask for a pre-order or run a fake paywall. A real transaction is a far stronger signal.</p></div>
+      <div class="card teal"><div class="kicker teal">Experiment C</div><h4>"We'll build a full AI quiz generator and see if 70% of questions are rated useful."</h4><p>Too resource-intensive for an early test. Stronger: manually generate quizzes with an existing AI tool first, test with 5–10 documents.</p></div>
+
+      <div class="card gold">
+        <h4>Two hypothesis formats</h4>
+        <p>"We believe that [specific testable action] will result in [specific measurable outcome] within [timeframe]."<br><em>or</em><br>"If [we do X], by [taking Y action], we will [have this outcome], because [validation criteria] has been reached within [timeframe]."</p>
+      </div>
+
+      <h2 class="sec">The Experiment Design Canvas</h2>
+      <p>Use one canvas per assumption, start with your five highest-priority assumptions from Week 2.</p>
+      <div class="exp-tabs" id="expTabs">
+        <button class="exp-tab active" data-exp="1">Experiment 1</button>
+        <button class="exp-tab" data-exp="2">Experiment 2</button>
+        <button class="exp-tab" data-exp="3">Experiment 3</button>
+        <button class="exp-tab" data-exp="4">Experiment 4</button>
+        <button class="exp-tab" data-exp="5">Experiment 5</button>
+      </div>
+      <div class="exp-panel active" data-exp="1">
+        <div class="exp-grid">
+          <div class="field span3"><label>Assumption</label><span class="hint">A summary description of the assumption under test.</span><textarea data-key="exp.1.assumption"></textarea></div><div class="field span2"><label>Hypothesis</label><span class="hint">We believe that [action] will result in [outcome] within [timeframe]...</span><textarea data-key="exp.1.hypothesis"></textarea></div><div class="field"><label>People</label><span class="hint">Who from your team (or network) is involved, and in what role?</span><textarea data-key="exp.1.people"></textarea></div><div class="field"><label>Setup</label><span class="hint">What kind of experiment? What are you measuring?</span><textarea data-key="exp.1.setup"></textarea></div><div class="field"><label>Execution</label><span class="hint">Start and end dates. Does this need to run sequentially?</span><textarea data-key="exp.1.execution"></textarea></div><div class="field"><label>Resources</label><span class="hint">What do you need, money, tools, people, access?</span><textarea data-key="exp.1.resources"></textarea></div><div class="field span3"><label>Validation Criteria</label><span class="hint">The specific, numeric threshold for valid / invalid.</span><textarea data-key="exp.1.validation"></textarea></div><div class="field"><label>Results</label><span class="hint">What actually happened? What evidence did you gather?</span><textarea data-key="exp.1.results"></textarea></div><div class="field"><label>Conclusion</label><span class="hint">Validated / Invalidated / Inconclusive.</span><textarea data-key="exp.1.conclusion"></textarea></div><div class="field"><label>Next Steps</label><span class="hint">Double down, adjust, or pivot?</span><textarea data-key="exp.1.nextsteps"></textarea></div>
+        </div>
+      </div>
+      <div class="exp-panel" data-exp="2">
+        <div class="exp-grid">
+          <div class="field span3"><label>Assumption</label><span class="hint">A summary description of the assumption under test.</span><textarea data-key="exp.2.assumption"></textarea></div><div class="field span2"><label>Hypothesis</label><span class="hint">We believe that [action] will result in [outcome] within [timeframe]...</span><textarea data-key="exp.2.hypothesis"></textarea></div><div class="field"><label>People</label><span class="hint">Who from your team (or network) is involved, and in what role?</span><textarea data-key="exp.2.people"></textarea></div><div class="field"><label>Setup</label><span class="hint">What kind of experiment? What are you measuring?</span><textarea data-key="exp.2.setup"></textarea></div><div class="field"><label>Execution</label><span class="hint">Start and end dates. Does this need to run sequentially?</span><textarea data-key="exp.2.execution"></textarea></div><div class="field"><label>Resources</label><span class="hint">What do you need, money, tools, people, access?</span><textarea data-key="exp.2.resources"></textarea></div><div class="field span3"><label>Validation Criteria</label><span class="hint">The specific, numeric threshold for valid / invalid.</span><textarea data-key="exp.2.validation"></textarea></div><div class="field"><label>Results</label><span class="hint">What actually happened? What evidence did you gather?</span><textarea data-key="exp.2.results"></textarea></div><div class="field"><label>Conclusion</label><span class="hint">Validated / Invalidated / Inconclusive.</span><textarea data-key="exp.2.conclusion"></textarea></div><div class="field"><label>Next Steps</label><span class="hint">Double down, adjust, or pivot?</span><textarea data-key="exp.2.nextsteps"></textarea></div>
+        </div>
+      </div>
+      <div class="exp-panel" data-exp="3">
+        <div class="exp-grid">
+          <div class="field span3"><label>Assumption</label><span class="hint">A summary description of the assumption under test.</span><textarea data-key="exp.3.assumption"></textarea></div><div class="field span2"><label>Hypothesis</label><span class="hint">We believe that [action] will result in [outcome] within [timeframe]...</span><textarea data-key="exp.3.hypothesis"></textarea></div><div class="field"><label>People</label><span class="hint">Who from your team (or network) is involved, and in what role?</span><textarea data-key="exp.3.people"></textarea></div><div class="field"><label>Setup</label><span class="hint">What kind of experiment? What are you measuring?</span><textarea data-key="exp.3.setup"></textarea></div><div class="field"><label>Execution</label><span class="hint">Start and end dates. Does this need to run sequentially?</span><textarea data-key="exp.3.execution"></textarea></div><div class="field"><label>Resources</label><span class="hint">What do you need, money, tools, people, access?</span><textarea data-key="exp.3.resources"></textarea></div><div class="field span3"><label>Validation Criteria</label><span class="hint">The specific, numeric threshold for valid / invalid.</span><textarea data-key="exp.3.validation"></textarea></div><div class="field"><label>Results</label><span class="hint">What actually happened? What evidence did you gather?</span><textarea data-key="exp.3.results"></textarea></div><div class="field"><label>Conclusion</label><span class="hint">Validated / Invalidated / Inconclusive.</span><textarea data-key="exp.3.conclusion"></textarea></div><div class="field"><label>Next Steps</label><span class="hint">Double down, adjust, or pivot?</span><textarea data-key="exp.3.nextsteps"></textarea></div>
+        </div>
+      </div>
+      <div class="exp-panel" data-exp="4">
+        <div class="exp-grid">
+          <div class="field span3"><label>Assumption</label><span class="hint">A summary description of the assumption under test.</span><textarea data-key="exp.4.assumption"></textarea></div><div class="field span2"><label>Hypothesis</label><span class="hint">We believe that [action] will result in [outcome] within [timeframe]...</span><textarea data-key="exp.4.hypothesis"></textarea></div><div class="field"><label>People</label><span class="hint">Who from your team (or network) is involved, and in what role?</span><textarea data-key="exp.4.people"></textarea></div><div class="field"><label>Setup</label><span class="hint">What kind of experiment? What are you measuring?</span><textarea data-key="exp.4.setup"></textarea></div><div class="field"><label>Execution</label><span class="hint">Start and end dates. Does this need to run sequentially?</span><textarea data-key="exp.4.execution"></textarea></div><div class="field"><label>Resources</label><span class="hint">What do you need, money, tools, people, access?</span><textarea data-key="exp.4.resources"></textarea></div><div class="field span3"><label>Validation Criteria</label><span class="hint">The specific, numeric threshold for valid / invalid.</span><textarea data-key="exp.4.validation"></textarea></div><div class="field"><label>Results</label><span class="hint">What actually happened? What evidence did you gather?</span><textarea data-key="exp.4.results"></textarea></div><div class="field"><label>Conclusion</label><span class="hint">Validated / Invalidated / Inconclusive.</span><textarea data-key="exp.4.conclusion"></textarea></div><div class="field"><label>Next Steps</label><span class="hint">Double down, adjust, or pivot?</span><textarea data-key="exp.4.nextsteps"></textarea></div>
+        </div>
+      </div>
+      <div class="exp-panel" data-exp="5">
+        <div class="exp-grid">
+          <div class="field span3"><label>Assumption</label><span class="hint">A summary description of the assumption under test.</span><textarea data-key="exp.5.assumption"></textarea></div><div class="field span2"><label>Hypothesis</label><span class="hint">We believe that [action] will result in [outcome] within [timeframe]...</span><textarea data-key="exp.5.hypothesis"></textarea></div><div class="field"><label>People</label><span class="hint">Who from your team (or network) is involved, and in what role?</span><textarea data-key="exp.5.people"></textarea></div><div class="field"><label>Setup</label><span class="hint">What kind of experiment? What are you measuring?</span><textarea data-key="exp.5.setup"></textarea></div><div class="field"><label>Execution</label><span class="hint">Start and end dates. Does this need to run sequentially?</span><textarea data-key="exp.5.execution"></textarea></div><div class="field"><label>Resources</label><span class="hint">What do you need, money, tools, people, access?</span><textarea data-key="exp.5.resources"></textarea></div><div class="field span3"><label>Validation Criteria</label><span class="hint">The specific, numeric threshold for valid / invalid.</span><textarea data-key="exp.5.validation"></textarea></div><div class="field"><label>Results</label><span class="hint">What actually happened? What evidence did you gather?</span><textarea data-key="exp.5.results"></textarea></div><div class="field"><label>Conclusion</label><span class="hint">Validated / Invalidated / Inconclusive.</span><textarea data-key="exp.5.conclusion"></textarea></div><div class="field"><label>Next Steps</label><span class="hint">Double down, adjust, or pivot?</span><textarea data-key="exp.5.nextsteps"></textarea></div>
+        </div>
+      </div>
+
+      <div class="reflect">
+        <div class="kicker lilac"><svg style="width:16px;height:16px;"><use href="#icon-chat"/></svg> Field Notes</div>
+        <p class="prompt">Look at your five hypotheses. Which one are you most afraid will fail? Why might that be worth running first?</p>
+        <textarea data-key="w3.reflect1"></textarea>
+        <p class="prompt">For each experiment, could it realistically come back "no"? If you can't imagine a negative result, redesign it.</p>
+        <textarea data-key="w3.reflect2"></textarea>
+        <p class="prompt">What's the cheapest, roughest version of experiment #1 you could launch this week?</p>
+        <textarea data-key="w3.reflect3"></textarea>
+      </div>
+
+      <h2 class="sec">Move 6 · Run, Review &amp; Re-Prioritize</h2>
+      <p>A plan is not evidence. Structure your remaining time into short cycles, alternating between launching and reflecting.</p>
+      <div class="card-grid">
+        <div class="card teal"><div class="kicker teal">Launch Days</div><p>Confirm your setup is ready, and take the first concrete step to launch, send the form, post the ad, book the interviews.</p></div>
+        <div class="card teal"><div class="kicker teal">Review Days</div><p>Share your results plainly. Interrogate the result. Update your experiment canvas. Decide your next experiment, and why.</p></div>
+      </div>
+      <div class="card coral">
+        <div class="kicker coral">Stick to your validation criteria</div>
+        <h4>Decide what would change your mind, before you see the result.</h4>
+        <p>It's tempting, once results come in, to quietly move the goalposts. Write your validation criteria down before you launch, and hold yourself to them afterward, even when the honest reading is uncomfortable.</p>
+      </div>
+      <p>After a full cycle of experimentation, resist the instinct to build a traditional pitch about market size and growth projections. What you've actually built is <strong>original insight</strong>, evidence-backed knowledge that gives you a genuine advantage, whether it points toward building exactly what you set out to build, or somewhere else entirely.</p>
+
+      <div class="reflect">
+        <div class="kicker lilac"><svg style="width:16px;height:16px;"><use href="#icon-chat"/></svg> The Insight Pitch, Notes to Self</div>
+        <p class="prompt">In plain language: what is the single most important thing you learned this week?</p>
+        <textarea data-key="w3.reflect4"></textarea>
+        <p class="prompt">What surprised you the most, a result you didn't expect, or an assumption you didn't know you were making?</p>
+        <textarea data-key="w3.reflect5"></textarea>
+        <p class="prompt">What's your next experiment, and why is it the right one to run next?</p>
+        <textarea data-key="w3.reflect6"></textarea>
+        <p class="prompt">If someone asked you today, "what's your unfair advantage in solving this problem," what would you honestly say?</p>
+        <textarea data-key="w3.reflect7"></textarea>
+      </div>
+
+      <div style="text-align:center; margin:36px 0;">
+        <button class="week-tab" style="font-size:16px; padding:12px 28px;" onclick="document.querySelector('[data-week=reference]').click()">See Reference &amp; Glossary →</button>
+      </div>
+    </section>
+    <section class="panel" id="panel-reference">
+      <div class="kicker teal">Reference</div>
+      <h1 class="pagehead">What Are You Actually Building?</h1>
+      <p>Before you open a canvas in Week 1, you need to know which one to open. The simplest test: once you've built it, does the value live in something that exists independently of you, or does it only exist while a person is actively doing something for another person?</p>
+      <ul class="bullets">
+        <li><strong>Packaged into a repeatable artifact</strong> a customer can use without you present each time? You're building a product.</li>
+        <li><strong>Delivered live, through expertise or labor</strong> that must be re-performed for every customer? You're building a service.</li>
+        <li><strong>Mostly social or environmental outcomes</strong> rather than revenue? You're building a social venture, whatever the delivery mechanism.</li>
+      </ul>
+
+      <h2 class="sec">Quick Diagnostic</h2>
+      <p>Answer these four questions and we'll suggest a canvas to start with.</p>
+      <div class="diagnostic" id="diagnostic">
+        <div class="q" data-q="scale">
+          <p>1. Scalability: If you got 100× more customers tomorrow, would your costs grow...</p>
+          <div class="opts">
+            <button data-val="service">Roughly in a straight line with revenue (more customers needs more people)</button>
+            <button data-val="product">Much more slowly than revenue</button>
+          </div>
+        </div>
+        <div class="q" data-q="delivery">
+          <p>2. Delivery: Can a customer receive the full value without ever speaking to a human on your team?</p>
+          <div class="opts">
+            <button data-val="product">Yes</button>
+            <button data-val="service">No, it needs a conversation or judgment call</button>
+          </div>
+        </div>
+        <div class="q" data-q="ownership">
+          <p>3. Ownership: After the transaction, does the customer...</p>
+          <div class="opts">
+            <button data-val="product">Walk away holding something (app, device, report)</button>
+            <button data-val="service">Walk away having experienced something (consultation, workshop)</button>
+          </div>
+        </div>
+        <div class="q" data-q="mission">
+          <p>4. Mission: Is your primary measure of success...</p>
+          <div class="opts">
+            <button data-val="product">Dollars / revenue</button>
+            <button data-val="social">Outcomes for a beneficiary, even at breakeven</button>
+          </div>
+        </div>
+        <div class="diagnostic-result" id="diagnosticResult"></div>
+      </div>
+      <p>Most real ventures are hybrids, and that's fine. Pick the canvas that matches where most of your risk currently sits, and revisit the choice as your idea matures.</p>
+
+      <h2 class="sec">The Validation Experiment Menu</h2>
+      <p>Eighteen experiment patterns covering the most common ways early-stage teams generate evidence cheaply. Filter by what you're trying to learn:</p>
+      <div class="filterbar" id="menuFilter">
+        <button class="filterbtn active" data-filter="all">All</button>
+        <button class="filterbtn" data-filter="Desirability">Desirability</button>
+        <button class="filterbtn" data-filter="Feasibility">Feasibility</button>
+        <button class="filterbtn" data-filter="Viability">Viability</button>
+      </div>
+      <table class="reftable" id="menuTable">
+        <thead><tr><th>Experiment</th><th>Targets</th><th>What it does</th><th>Signal</th><th>Cost</th></tr></thead>
+        <tbody><tr data-targets="Desirability"><td><strong>Retention Reality Check</strong></td><td><span class="tag">Desirability</span></td><td>Measure whether users keep using your product after initial exposure, tracked as Week 1 retention.</td><td>20-30% retention (varies by product).</td><td>Low</td></tr>
+<tr data-targets="Desirability, Viability"><td><strong>Explainer Funnel Test</strong></td><td><span class="tag">Desirability</span><span class="tag">Viability</span></td><td>Create a video explainer and track how many viewers proceed to take action.</td><td>A strong drop-off funnel: view to click to convert.</td><td>Medium</td></tr>
+<tr data-targets="Desirability"><td><strong>Clarity Landing Page Test</strong></td><td><span class="tag">Desirability</span></td><td>Build a simple landing page to test whether your value proposition is clear.</td><td>High conversion rate, e.g. email signup above 10-20%.</td><td>Low</td></tr>
+<tr data-targets="Feasibility, Desirability"><td><strong>Think-Aloud Prototype Test</strong></td><td><span class="tag">Feasibility</span><span class="tag">Desirability</span></td><td>Have users interact with your prototype while verbalizing their thoughts.</td><td>Users intuitively understand and complete tasks.</td><td>Low-Medium</td></tr>
+<tr data-targets="Feasibility"><td><strong>Prototype Build Sprint</strong></td><td><span class="tag">Feasibility</span></td><td>Rapidly build a functional prototype to validate technical execution.</td><td>Core functionality works reliably.</td><td>Low-Medium</td></tr>
+<tr data-targets="Desirability"><td><strong>Expert Time Purchase</strong></td><td><span class="tag">Desirability</span></td><td>Pay domain experts for structured interviews or surveys.</td><td>Clear articulation of pain, plus willingness to pay.</td><td>Medium (~€50–€300/expert)</td></tr>
+<tr data-targets="Desirability, Viability"><td><strong>Search Intent Reverse Engineering</strong></td><td><span class="tag">Desirability</span><span class="tag">Viability</span></td><td>Analyze what people search for related to the problem.</td><td>High search volume and an upward trend.</td><td>Low</td></tr>
+<tr data-targets="Desirability, Viability"><td><strong>Workaround Detection</strong></td><td><span class="tag">Desirability</span><span class="tag">Viability</span></td><td>Interview professionals to uncover current workarounds.</td><td>Evidence of an inefficient or costly workaround.</td><td>Low</td></tr>
+<tr data-targets="Viability"><td><strong>VC Signal Reverse Engineering</strong></td><td><span class="tag">Viability</span></td><td>Analyze VC-backed startups to infer validated problem spaces.</td><td>Identification of high-potential, funded problem areas.</td><td>Low</td></tr>
+<tr data-targets="Desirability"><td><strong>Mass Sentiment Scan</strong></td><td><span class="tag">Desirability</span></td><td>Run large-scale surveys (1000+ respondents).</td><td>A majority confirms problem relevance and urgency.</td><td>Medium-High</td></tr>
+<tr data-targets="Desirability"><td><strong>Pain Ranking Workshop</strong></td><td><span class="tag">Desirability</span></td><td>Use card sorting with target users to rank pain points.</td><td>Clear prioritization of real vs. assumed problems.</td><td>Low</td></tr>
+<tr data-targets="Desirability, Viability"><td><strong>Behavioral A/B Engine</strong></td><td><span class="tag">Desirability</span><span class="tag">Viability</span></td><td>Test variations of features, flows, or messaging.</td><td>Statistically significant improvement in a metric.</td><td>Low-Medium</td></tr>
+<tr data-targets="Desirability, Viability"><td><strong>Review Mining Analysis</strong></td><td><span class="tag">Desirability</span><span class="tag">Viability</span></td><td>Analyze competitor reviews for unmet needs and frustrations.</td><td>Clear gaps in existing solutions.</td><td>Low</td></tr>
+<tr data-targets="Feasibility, Desirability"><td><strong>Critical Flow Prototype</strong></td><td><span class="tag">Feasibility</span><span class="tag">Desirability</span></td><td>Prototype the single most critical user journey.</td><td>Users can complete the core task without confusion.</td><td>Low</td></tr>
+<tr data-targets="Desirability"><td><strong>Vision in Motion (AI Demo Video)</strong></td><td><span class="tag">Desirability</span></td><td>Create a high-quality AI-generated demo video of your vision.</td><td>High engagement, views, shares, signups.</td><td>Low-Medium</td></tr>
+<tr data-targets="Desirability"><td><strong>Build in Public Amplifier</strong></td><td><span class="tag">Desirability</span></td><td>Founders share their journey publicly.</td><td>Growth in followers, inbound interest, early adopters.</td><td>Low</td></tr>
+<tr data-targets="Viability, Desirability"><td><strong>Smoke Test Funnel</strong></td><td><span class="tag">Viability</span><span class="tag">Desirability</span></td><td>Run paid ads to a fake or pre-product landing page.</td><td>Users click and attempt conversion.</td><td>Medium (~€100–€500)</td></tr>
+<tr data-targets="Desirability, Viability"><td><strong>Fake Brand Traction Test</strong></td><td><span class="tag">Desirability</span><span class="tag">Viability</span></td><td>Launch a social presence that communicates your value prop.</td><td>Strong engagement rate plus clicks through.</td><td>Medium (~€50–€300)</td></tr></tbody>
+      </table>
+
+      <h2 class="sec">Glossary</h2>
+      <input type="text" class="glossary-search" id="glossarySearch" placeholder="Search terms...">
+      <dl class="glossary" id="glossaryList"><dt>Original Insight</dt><dd>Knowledge about a problem that gives you a genuine advantage in solving it, this workbook's version of “competitive advantage,” oriented toward early-stage founders and researchers.</dd>
+<dt>Problem-Solution Fit</dt><dd>Evidence that your proposed solution actually addresses a real problem. Not a single milestone, a spectrum from reasoned to perceived to demonstrated to observed fit.</dd>
+<dt>Assumption</dt><dd>A hypothesis about customers, problems, solutions, behaviors, markets, or economics that has not yet been validated with evidence.</dd>
+<dt>Validation Criteria</dt><dd>The specific, concrete, ideally numeric threshold that would tell you an assumption is valid, invalid, or still unclear.</dd>
+<dt>MVP (Minimum Viable Product)</dt><dd>The smallest version of your solution that lets you test your riskiest assumption, not a stripped-down version of your final vision.</dd>
+<dt>Pivot</dt><dd>A structured change of direction in response to evidence, a change in problem, customer, solution, or business model, made deliberately rather than as a last resort.</dd>
+<dt>Runway</dt><dd>How long your venture can operate before it runs out of money, typically expressed in months.</dd>
+<dt>Desirability / Feasibility / Viability / Responsibility</dt><dd>The four lenses of business design: do people want it, can you build it, does it make business sense, and should it exist at all.</dd>
+<dt>Jobs to Be Done</dt><dd>A framework holding that customers don't buy products, they “hire” them to make progress on a specific job in their life.</dd>
+<dt>Smoke Test</dt><dd>An experiment that measures willingness to act, clicking, signing up, or paying, for a product that doesn't fully exist yet.</dd>
+<dt>Dependency Logic</dt><dd>A way of reading your assumptions as a chain: market exists, problem is real, solution works, customers adopt, customers pay, economics work.</dd></dl>
+
+      <h2 class="sec">Go Find Out.</h2>
+      <p>You now have everything the original cohort program built over ten weeks, compressed into a sprint you can run on your own timeline. The only ingredient this workbook can't supply is the one that matters most: actually talking to people, actually running the experiment, actually reading the result honestly when it isn't what you hoped for.</p>
+      <blockquote class="pullquote">Progress over perfection. Speed of learning beats polish.</blockquote>
+      <svg style="width:40px;height:40px; color:var(--teal); display:block; margin:20px auto;"><use href="#icon-flag"/></svg>
+    </section>
+  </main>
+</div>
+
+<footer class="sitefooter">
+  <p><strong>Original Insight</strong> is a validation system designed by <a href="https://lighthouse.ku.dk" target="_blank" rel="noopener">Lighthouse</a>, University of Copenhagen.</p>
+  <p>Adapted from the Lighthouse Launch program materials (Sessions 1 through 6) for self-guided use by student founders and researchers.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
